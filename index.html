@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Weather tracker website</title>
+    <link rel="stylesheet" href="weather.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="font-customFont">
+    <div id="container" class="sm:flex ">
+        <div id="weatherContent" class="flex flex-col items-center justify-center h-screen sm:w-1/3">
+            <div id="inputBox" class="bg-gray-200 m-4 rounded-full px-4 py-2 flex justify-between pr-5 w-9/12 sm:w-8/12">
+                <input type="text" placeholder="Bharatpur, Nepal" spellcheck="false" id="searchBox" class="bg-gray-200 outline-none"><button class="cursor-pointer w-10 text-xl"><i class="fa-solid fa-magnifying-glass text-blue-500 sm:text-xl"></i></button>
+            </div>
+
+            <div id="weatherImage" class="w-44">
+                <img id="weatherIcon" src="" class="h-40">
+            </div>
+
+            <div class="border-b-2 w-3/6 flex flex-col items-center p-2 gap-2">
+                <h1 class="text-5xl sm:text-6xl" id="temperature"></h1>
+                <p class="font-medium" id="weatherText"></p>
+            </div>
+
+            <div id="date" class="p-8 flex flex-col items-center">
+
+            </div>
+
+            <div id="cityName">
+                <h2 id="city" class="text-3xl"></h2>
+            </div>
+        </div>
+
+        <div id="optionalContent" class="bg-gray-200 p-7 sm:flex-1">
+            <div id="dayName" class="text-2xl pb-3 flex">
+                <label for="today">Today</label>
+            </div>
+
+            <div id="otherDetails" class="flex flex-col items-center sm:flex-row flex-wrap justify-around">
+                <div class="bg-customColor px-5 py-3 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-1 sm:w-72 mb-2 sm:h-44">
+                    <p>Wind</p>
+                    <i class="fa-solid fa-wind text-5xl sm:text-7xl p-1"></i>
+                    <p id="wind"></p>
+                </div>
+
+                <div class="bg-customColor px-5 py-3 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-1 sm:w-72 mb-2 sm:h-44">
+                    <p>Humidity</p>
+                    <i class="fa-solid fa-water text-5xl sm:text-7xl p-1"></i>
+                    <p id="humidity"></p>
+                </div>
+
+                <div id="realFeel"  class="bg-customColor px-5 py-3 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-1 sm:w-72 mb-2 sm:h-44">
+                    <p>Real Feel</p>
+                    <img id="realFeelIcon" src="" class="w-12 sm:w-20">
+                    <p id="realFeelTemp"></p>
+                </div>
+    
+                <div class="bg-customColor px-5 py-3 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-1 sm:w-72 mb-2 sm:h-44">
+                    <p>UV Index</p>
+                    <i class="fa-solid fa-bacon text-5xl sm:text-7xl p-1"></i>
+                    <p id="uvIndex"></p>
+                </div>
+    
+                <div class="bg-customColor px-5 py-3 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-1 sm:w-72 mb-2 sm:h-44">
+                    <p>Pressure</p>
+                    <i class="fa-solid fa-volcano text-5xl sm:text-7xl p-1"></i>
+                    <p id="pressure"></p>
+                </div>
+    
+                <div id="chanceOfRain" class="bg-customColor px-5 py-3 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-7 sm:w-72 sm:gap-12 mb-2 sm:h-44">
+                    <p>Coordinate</p>
+                    <div class="sm:flex flex-col gap-2 p-1">
+                        <p id="latitude">Latitude</p>
+                        <p id="longitude">Longitude</p>
+                    </div>
+                </div>
+
+                <div id="temperatureHistory" class="bg-customColor px-5 py-3 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-1 sm:w-72 sm:h-44">
+                    <p>Temperature History</p>
+                    <i class="fa-solid fa-temperature-half text-5xl pb-2 sm:text-7xl p-3"></i>
+                    <div class="flex gap-10">
+                        <span class="flex items-center"><i class="fa-solid fa-arrow-up pr-2 text-red-500"></i><p id="maxTemp"></p></span>
+                        <span class="flex items-center"><i class="fa-solid fa-arrow-down pr-2"></i><p id="minTemp"></p></span>
+                    </div>
+                </div>
+    
+                <div id="sun" class="bg-customColor p-6 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-8 sm:w-72 sm:h-44">
+                    <span class="flex items-center"><i class="fa-solid fa-sun text-2xl sm:text-3xl p-2"></i><p id="sunRise"></p></span>
+                    <span class="flex items-center"><i class="fa-regular fa-sun text-2xl sm:text-3xl pr-2"></i><p id="sunSet"></p></span>
+                </div>
+    
+                <div id="moon" class="bg-customColor p-6 rounded-xl w-3/4 text-gray-200 m-3 flex flex-col items-center m-h-28 justify-between gap-8 sm:w-72 sm:h-44">
+                    <span class="flex items-center"><i class="fa-solid fa-moon text-2xl sm:text-3xl p-2"></i><p id="moonRise"></p></span>
+                    <span class="flex items-center"><i class="fa-regular fa-moon text-2xl sm:text-3xl p-1"></i><p id="moonSet"></p></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
